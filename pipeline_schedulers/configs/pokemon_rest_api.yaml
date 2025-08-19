@@ -1,0 +1,25 @@
+pipeline_name: rest_api_pokemon
+description: "A pipeline that ingests data from the Pokemon REST API"
+schedule: "0 0 * * *"  # Every day at midnight
+destination: 
+  type: bigquery
+  arguments:
+    dataset_name: pokemon
+source:
+  type: rest_api
+  arguments:
+    client:
+      base_url: https://pokeapi.co/api/v2/
+      # If you leave out the paginator, it will be inferred from the API:
+      # paginator: json_link
+    resource_defaults:
+      endpoint:
+        paginator:
+          type: offset
+          limit: 3
+          maximum_offset: 3
+          total_path: count
+
+    resources:
+      - berry
+      - pokemon

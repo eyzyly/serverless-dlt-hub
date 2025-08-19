@@ -1,0 +1,8 @@
+[project]
+name = "serverless-dlt-hub"
+version = "0.1.0"
+description = "A serverless data ingestion hub using dlthub"
+dependencies = [
+    "dlt[bigquery]>=1.15.0",
+    "toml>=0.10.2",
+]
