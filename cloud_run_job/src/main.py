@@ -21,7 +21,6 @@ def get_pipeline_config(config_filename: str):
 
 def data_ingestion():
     config_filename = os.environ.get("CONFIG_FILE")
-    config_filename = "pokemon_rest_api.yaml"
     pipeline_config = get_pipeline_config(config_filename=config_filename)
 
     pipeline_name = pipeline_config['pipeline_name']

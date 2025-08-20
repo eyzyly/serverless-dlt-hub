@@ -2,15 +2,16 @@
 
 **serverless-dlt-hub** is a framework for orchestrating serverless data ingestion pipelines on Google Cloud Platform (GCP). It integrates dltHub for data loading, Google Cloud Run for serverless execution, and Terraform for infrastructure provisioning. The project enables configuration-driven pipeline deployments, supporting ingestion from diverse sources into BigQuery, with all pipeline configurations managed in a Google Cloud Storage (GCS) bucket.
 
+![serverless-dlt-hub architecture diagram](docs/serverless-dlt-hub-architecture.png)
+
 ## Why dltHub?
 
 dltHub is a modern open-source data loading framework designed for simplicity, scalability, and flexibility. It enables users to ingest data from various sources—including APIs, databases, and files—into cloud data warehouses with minimal code. Key advantages include:
 
 - **Declarative Configuration:** Easily define data sources and destinations using YAML or Python, reducing boilerplate and manual coding.
 - **Extensible Ecosystem:** Offers numerous built-in connectors for diverse data sources and destinations, including support for complex REST API configurations.
-- **Efficient Data Loading:** Handles schema inference, incremental loading, and automatic type conversion, streamlining ETL workflows.
+- **Efficient Data Loading:** Handles schema inference/validation, automatic checkpointing, incremental loading, and automatic type conversion, streamlining ETL workflows.
 - **Cloud-Native Design:** Optimized for serverless and cloud environments, making it ideal for scalable, automated data pipelines.
-- **Open Source:** Freely available and actively maintained, with transparent development and community support.
 
 ## Key Features
 
@@ -100,6 +101,12 @@ gsutil -m cp configs/* gs://${GCS_BUCKET_NAME}/
 
 Trigger the Cloud Scheduler via the GCP Console UI.  
 Verify in BigQuery that the dataset and tables (`berry` and `pokemon`) are created successfully.
+
+## Areas for Further Improvement
+
+- **Enhanced Schema and Data Contract Validation:** Leverage dltHub’s built-in schema and data contract validation features for more robust data quality assurance. [Learn more](https://dlthub.com/docs/general-usage/schema-contracts)
+- **Improved Job Identification:** Develop a more descriptive and consistent naming convention for Cloud Run job executions to simplify monitoring and troubleshooting.
+- **Flexible Parameter Overrides:** Currently, overriding the `CONFIG_FILE` variable enables dynamic data ingestion, but complicates ad hoc retries. Consider supporting parameter-level overrides in addition to file-based overrides to streamline ad hoc executions.
 
 ## References
 
