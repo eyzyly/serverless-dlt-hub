@@ -40,7 +40,7 @@ dltHub is a modern open-source data loading framework designed for simplicity, s
 
 ## Example: Deploying Data Ingestion Pipelines
 
-This example demonstrates how to ingest data from an external Pokémon API (specifically the "pokemon" and "berry" endpoints) into BigQuery. The configuration file specifies the pipeline schedule, data source, and destination settings.
+This example demonstrates how to ingest data from an external [Pokémon API](https://pokeapi.co/docs/v2) (specifically the "pokemon" and "berry" endpoints) into BigQuery. The configuration file specifies the pipeline schedule, data source, and destination settings.
 
 Source and destination configurations abstract dltHub's Python code, allowing straightforward specification of REST API endpoints and BigQuery tables.
 
