@@ -28,7 +28,7 @@ dltHub is a modern open-source data loading framework designed for simplicity, s
 - Enabled GCP APIs: Artifact Registry, Cloud Scheduler, Cloud Run, Cloud Storage, and BigQuery
 - A dedicated GCP service account for this project
 - The following IAM roles must be assigned to the service account:
-- BigQuery Data Editor
+  - BigQuery Data Editor
   - BigQuery Job User
   - BigQuery Read Session User
   - Cloud Run Jobs Executor with overrides
